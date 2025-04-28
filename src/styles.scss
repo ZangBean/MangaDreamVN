@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+#sparkle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: sparkle-fade 1s forwards;
+  }
+  
+  .sparkle::before, .sparkle::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 2px;
+  }
+  
+  .sparkle::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .sparkle::after {
+    height: 100%;
+    width: 2px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  
+  @keyframes sparkle-fade {
+    to {
+      transform: translate(-50%, -50%) rotate(45deg) scale(2);
+      opacity: 0;
+    }
+  }
